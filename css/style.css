@@ -266,6 +266,9 @@ color: #fff;
 .featured-work p.padding-b{
 	padding-bottom:35px;
 }
+.featured-work p.padding-b-small{
+	padding-bottom:20px;
+}
 .featured-box-col1{
 	width:60px;
 	float:left;
@@ -867,4 +870,21 @@ border: 2px solid #fff;
 .delay-12s { 
 	animation-delay: 1.2s; 
 	-webkit-animation-delay: 1.2s; 
+}
+
+/* Table */
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
 }
