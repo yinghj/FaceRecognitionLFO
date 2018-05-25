@@ -37,20 +37,30 @@
 	======================================================= -->
 <style>
 .rotate {
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
    -ms-transform: rotate(180deg);
     -webkit-transform: rotate(180deg);
      transform: rotate(180deg);
 }
 
 .normal {
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
    -ms-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
      transform: rotate(0deg);
 }
+
+
 figcaption {
 	width: 400px;
+	margin-left: auto;
+    margin-right: auto;
 	display: block;
-  text-align: right;
+  text-align: center;
 }
 </style>
 
@@ -108,19 +118,22 @@ function Rotate() {
 						</div>
 					</div>
 					<div class="featured-box-col2 wow fadeInRight delay-01s">
-							<p class="padding-b">After decades of research, it is still not entirely clear whether faces are recognized holistically or based on specific features (Brewer, 2010). There is evidence that it may in fact be both.<br><br>
-							</p></div>
+							<p class="padding-b">After decades of research, it is still not entirely clear whether faces are recognized holistically or based on specific features (Brewer, 2010). There is evidence that it may in fact be both.<br>It has been shown that faces are a lot <b>harder to recognize</b> when the are presented <b>upside down</b> (Farah et al., 1998). 
+							</p><br></div>
 
 							<figure>
-							<img src="1490825.jpg" alt="image" align="right" width="25%" height="25%" onclick="Rotate()" class="normal" id="image"/>
+							<img src="1490825.jpg" alt="image" align="center" width="25%" height="25%" onclick="Rotate()" class="normal" id="image"/>
+							<figcaption>Do you recognize this person when her face is presented upside down? Click on the image to rotate it!</figcaption>
 						</figure>
 						<div class="featured-box-col2 wow fadeInRight delay-01s">
-							 It has been shown that faces are a lot <b>harder to recognize</b> when the are presented <b>upside down</b> (Farah et al., 1998). If face recognition were purely feature-based, that shouldn’t be the case since features remained intact and it’s just their presentation that changed. Additionally, in a study by Young et al. participants <b>performed</b> poorly at trying to recognize a celebrity <b>based on just the top half of the face</b> when it was combined with the bottom half of a different face (1987). Moreover, participants performed better at recognizing the top half when the two halves were misaligned, suggesting that we can't just tune out some of the features of a face and focus on others.	</div>
+							<br> If face recognition were purely feature-based, that shouldn’t be the case since features remained intact and it’s just their presentation that changed. Additionally, in a study by Young et al. participants <b>performed</b> poorly at trying to recognize a celebrity <b>based on just the top half of the face</b> when it was combined with the bottom half of a different face (1987). Moreover, participants performed better at recognizing the top half when the two halves were misaligned, suggesting that we can't just tune out some of the features of a face and focus on others.	</div>
+							<br><figure style="text-align: center;">
+							<img src="halves.png" width="50%" height="50%">
+							<figcaption>It's harder for people to recognize the top half of the face if the two halves are aligned.</figcaption>
+						</figure>
 						<div class="featured-box-col2 wow fadeInRight delay-01s">
 							 			 <br>However, it is also known that some facial features are more important depending on if the face is <b>familiar or unfamiliar</b>: <br> in the former case, internal features, such as shape of nose or eye color, have been shown to be more important, while external features such as face outline or hairstyle have been shown to be more important for unfamiliar faces (Ellis et al., 1979). </div>
-							 <br><br><br><br>
-							 <p align="right">Do you recognize this person<br> when her face is presented upside down?<br> Click on the image to rotate it!</p>
- </p>
+							 
 		
 							
 		</div>
