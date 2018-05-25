@@ -1,0 +1,284 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, maximum-scale=1">
+
+	<title>LFO! - Face Recognition</title>
+	<link rel="icon" href="favicon.png" type="image/png">
+	<link rel="shortcut icon" href="favicon.ico" type="img/x-icon">
+
+	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,800italic,700italic,600italic,400italic,300italic,800,700,600' rel='stylesheet' type='text/css'>
+
+	<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+	<link href="css/font-awesome.css" rel="stylesheet" type="text/css">
+	<link href="css/responsive.css" rel="stylesheet" type="text/css">
+	<link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
+	<link href="css/animate.css" rel="stylesheet" type="text/css">
+
+	<script type="text/javascript" src="js/jquery.1.8.3.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/jquery-scrolltofixed.js"></script>
+	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="js/jquery.isotope.js"></script>
+	<script type="text/javascript" src="js/wow.js"></script>
+	<script type="text/javascript" src="js/classie.js"></script>
+	<script type="text/javascript" src="js/magnific-popup.js"></script>
+	<script src="contactform/contactform.js"></script>
+
+	<!-- =======================================================
+    Theme Name: Knight
+    Theme URL: https://bootstrapmade.com/knight-free-bootstrap-theme/
+    Author: BootstrapMade
+    Author URL: https://bootstrapmade.com
+	======================================================= -->
+<style>
+.rotate {
+   -ms-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+     transform: rotate(180deg);
+}
+
+.normal {
+   -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+     transform: rotate(0deg);
+}
+figcaption {
+	width: 400px;
+	display: block;
+  text-align: right;
+}
+</style>
+
+<script>
+function Rotate() {
+		var element = document.getElementById('image');
+
+		if (element.className === "normal") {
+			element.className = "rotate";
+		}
+		else if ( element.className === "rotate") {
+			element.className = 'normal';
+		}
+	} 
+</script>
+
+</head>
+
+<body>
+	<nav class="main-nav-outer" id="test">
+		<!--main-nav-start-->
+		<div class="container">
+			<ul class="main-nav">
+				<li><a href="index.html#computer">Back to Home</a></li>
+				<li><a href="#holistic">Holistic or Feature-Based?</a></li>
+				<li><a href="#stages">Stages of face recognition</a></li>
+				<li><a href="#individual">Individual Differences</a></li>
+				<li><a href="#mechanisms">Mechanisms of Face Recognition</a></li>
+			</ul>
+			<a class="res-nav_click" href="#"><i class="fa fa-bars"></i></a>
+		</div>
+	</nav>
+	<!--main-nav-end-->
+
+	<section class="main-section client-part" id="client">
+		<!--main-section client-part-start-->
+		<div class="container">
+			<b class="quote-right wow fadeInDown delay-03"><i class="fa fa-desktop"></i></b>
+			<div class="row">
+				<div class="col-lg-12">
+					<p class="client-part-haead wow fadeInDown delay-05">Human Face Recognition</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--main-section client-part-end-->
+
+	<section class="main-section alabaster" id="pixel">
+		<!--main-section alabaster-start-->
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-sm-12 featured-work" style="text-align: center;">
+					<h2 style="text-align: center;">Holistic or Feature Based?</h2>
+							
+						</div>
+					</div>
+					<div class="featured-box-col2 wow fadeInRight delay-01s">
+							<p class="padding-b">After decades of research, it is still not entirely clear whether faces are recognized holistically or based on specific features (Brewer, 2010). There is evidence that it may in fact be both.<br><br>
+							</p></div>
+
+							<figure>
+							<img src="1490825.jpg" alt="image" align="right" width="25%" height="25%" onclick="Rotate()" class="normal" id="image"/>
+						</figure>
+						<div class="featured-box-col2 wow fadeInRight delay-01s">
+							 It has been shown that faces are a lot <b>harder to recognize</b> when the are presented <b>upside down</b> (Farah et al., 1998). If face recognition were purely feature-based, that shouldn’t be the case since features remained intact and it’s just their presentation that changed. Additionally, in a study by Young et al. participants <b>performed</b> poorly at trying to recognize a celebrity <b>based on just the top half of the face</b> when it was combined with the bottom half of a different face (1987). Moreover, participants performed better at recognizing the top half when the two halves were misaligned, suggesting that we can't just tune out some of the features of a face and focus on others.	</div>
+						<div class="featured-box-col2 wow fadeInRight delay-01s">
+							 			 <br>However, it is also known that some facial features are more important depending on if the face is <b>familiar or unfamiliar</b>: <br> in the former case, internal features, such as shape of nose or eye color, have been shown to be more important, while external features such as face outline or hairstyle have been shown to be more important for unfamiliar faces (Ellis et al., 1979). </div>
+							 <br><br><br><br>
+							 <p align="right">Do you recognize this person<br> when her face is presented upside down?<br> Click on the image to rotate it!</p>
+ </p>
+		
+							
+		</div>
+	</section>
+	<!--main-section alabaster-end-->
+
+		<section class="main-section alabaster" id="stages">
+		<!--main-section alabaster-start-->
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-sm-12 featured-work" style="text-align: center;">
+					<h2 style="text-align: center;">Stages of Face Recognition</h2>
+				</div>
+			</div>
+			<div class="featured-box-col2 wow fadeInRight delay-01s"><p>Tsao & Livingstone (2008) suggest that human face recognition is comprised of the following stages:<br></p>
+ <ol>
+  <li><b>Face detection</b>: Recognizing that the object in front of you is a face and not something else. Requires holistic processing accomplished by extracting features that a face has in common with other faces.</li>
+  <li><b>Measurement and Categorization</b>: Features of a face are measured and represented in a way that will allow for easy identification. May be compared to templates stored in memory
+</li>
+  <li><b>Identification</b>: once the features have been measured, the face’s identity is established.</li>
+</ol> </div>
+
+	</section>
+
+
+
+		<section class="main-section alabaster" id="individual">
+		<!--main-section alabaster-start-->
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-sm-12 featured-work" style="text-align: center;">
+					<h2 style="text-align: center;">Individual differences</h2>
+				</div>
+			</div>
+							<figure>
+							<img src="facespace.jpg" alt="image" align="left">
+						</figure>
+<p>Not all people are equally good at recognizing faces - with people who don’t have the ability to identify people by looking at their face at all (this condition is called <i>prosopagnosia</i>, and famous people such as Oliver Sacks and Jane Goodall had it) on one end and so-called <i><b>super-recognizers</b></i> (Remember supertasters? Same deal but with face recognition!), who are able to recognize faces after only having briefly seen them once. Duchaine et al.’s study provides evidence that face recognition ability is genetic: face recognition ability in identical twins was strongly correlated (0.70) whereas the correlation in fraternal twins was significantly lower (0.30).</p><br>
+<div class="featured-box-col2 wow fadeInRight delay-01s"><p>Just like some people are better at recognizing faces than others, some faces lend themselves better to being recognize than others by being more distinctive. Valentino (1998) introduced the idea of <b>‘face-space’</b>: faces are arranged in this space by the ease with which they are recognized. In the very center of the space is a person whose features are average on all parameters and the more distinctive someone is based on their features, the further away they are from the center of the space.</p></div>
+
+	</section>
+
+		<section class="main-section alabaster" id="mechanisms">
+		<!--main-section alabaster-start-->
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-sm-12 featured-work" style="text-align: center;">
+					<h2 style="text-align: center;">Mechanisms of Face Recognition</h2>
+				</div>
+			</div>
+<div class="featured-box-col2 wow fadeInRight delay-01s"><p>Much about the neural processes involved in face recognition can be learned by conducting studies with subjects whose visual processing is impaired in some way because of brain damage. It was determined this way that face recognition partially depends on the same mechanisms as other types of visual recognition such as <b>object and scene recognition</b>. </p></div>
+<ul><br>
+	<li><div class="featured-box-col2 wow fadeInRight delay-01s">Rezlescu et al. (2012) worked with a subject who, because of damage to the right occipitotemporal cortex, lost his ability to recognize faces while exhibiting normal recognition for a variety of object classes and discrimination between similar objects, suggesting that certain processes are specific to face recognition.</div></li><br>
+	<li><div class="featured-box-col2 wow fadeInRight delay-01s">Conversely, Moscovitch et al. attempted to tease apart face recognition from object recognition and reading by working with CK, a patient with object agnosia and dyslexia. He performed as well as controls on face recognition as long as the face was upright and the eyes, nose, and mouth weren’t distorted, whether or not the face disguised or degraded and when represented as a photo, a caricature, a cartoon, or a face composed of objects. But CK performed a lot worse than controls when the face was distorted in any way, suggesting that those abilities share the same mechanism with reading and object recognition.</div></li>
+</ul>
+
+	</section>
+
+
+
+	<!--main-section alabaster-end-->
+
+	<footer class="footer">
+		<div class="container">
+			<span class="copyright">&copy; Knight Theme. All Rights Reserved</span>
+			<div class="credits">
+				<!--
+          All the links in the footer should remain intact.
+          You can delete the links only if you purchased the pro version.
+          Licensing information: https://bootstrapmade.com/license/
+          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Knight
+        -->
+				<a href="https://bootstrapmade.com/bootstrap-agency-templates/">Bootstrap Agency Templates</a> by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+			</div>
+		</div>
+	</footer>
+
+
+	<script type="text/javascript">
+		$(document).ready(function(e) {
+			$('#test').scrollToFixed();
+			$('.res-nav_click').click(function() {
+				$('.main-nav').slideToggle();
+				return false
+			});
+      $('.Portfolio-box').magnificPopup({
+        delegate: 'a',
+        type: 'image'
+      });
+		});
+	</script>
+
+	<script>
+		wow = new WOW({
+			animateClass: 'animated',
+			offset: 100
+		});
+		wow.init();
+	</script>
+
+
+	<script type="text/javascript">
+		$(window).load(function() {
+			$('.main-nav li a, .servicelink').bind('click', function(event) {
+				var $anchor = $(this);
+				$('html, body').stop().animate({
+					scrollTop: $($anchor.attr('href')).offset().top - 102
+				}, 1500, 'easeInOutExpo');
+				/*
+				if you don't want to use the easing effects:
+				$('html, body').stop().animate({
+					scrollTop: $($anchor.attr('href')).offset().top
+				}, 1000);
+				*/
+				if ($(window).width() < 768) {
+					$('.main-nav').hide();
+				}
+				event.preventDefault();
+			});
+		})
+	</script>
+
+	<script type="text/javascript">
+		$(window).load(function() {
+			var $container = $('.portfolioContainer'),
+				$body = $('body'),
+				colW = 375,
+				columns = null;
+			$container.isotope({
+				// disable window resizing
+				resizable: true,
+				masonry: {
+					columnWidth: colW
+				}
+			});
+			$(window).smartresize(function() {
+				// check if columns has changed
+				var currentColumns = Math.floor(($body.width() - 30) / colW);
+				if (currentColumns !== columns) {
+					// set new column count
+					columns = currentColumns;
+					// apply width to container manually, then trigger relayout
+					$container.width(columns * colW)
+						.isotope('reLayout');
+				}
+			}).smartresize(); // trigger resize to set container width
+			$('.portfolioFilter a').click(function() {
+				$('.portfolioFilter .current').removeClass('current');
+				$(this).addClass('current');
+				var selector = $(this).attr('data-filter');
+				$container.isotope({
+					filter: selector,
+				});
+				return false;
+			});
+		});
+	</script>
+
+</body>
+
+</html>
