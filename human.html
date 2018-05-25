@@ -37,20 +37,30 @@
 	======================================================= -->
 <style>
 .rotate {
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
    -ms-transform: rotate(180deg);
     -webkit-transform: rotate(180deg);
      transform: rotate(180deg);
 }
 
 .normal {
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
    -ms-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
      transform: rotate(0deg);
 }
+
+
 figcaption {
 	width: 400px;
+	margin-left: auto;
+    margin-right: auto;
 	display: block;
-  text-align: right;
+  text-align: center;
 }
 </style>
 
@@ -108,19 +118,22 @@ function Rotate() {
 						</div>
 					</div>
 					<div class="featured-box-col2 wow fadeInRight delay-01s">
-							<p class="padding-b">After decades of research, it is still not entirely clear whether faces are recognized holistically or based on specific features (Brewer, 2010). There is evidence that it may in fact be both.<br><br>
-							</p></div>
+							<p class="padding-b">After decades of research, it is still not entirely clear whether faces are recognized holistically or based on specific features (Brewer, 2010). There is evidence that it may in fact be both.<br>It has been shown that faces are a lot <b>harder to recognize</b> when the are presented <b>upside down</b> (Farah et al., 1998). 
+							</p><br></div>
 
 							<figure>
-							<img src="1490825.jpg" alt="image" align="right" width="25%" height="25%" onclick="Rotate()" class="normal" id="image"/>
+							<img src="1490825.jpg" alt="image" align="center" width="25%" height="25%" onclick="Rotate()" class="normal" id="image"/>
+							<figcaption>Do you recognize this person when her face is presented upside down? Click on the image to rotate it!</figcaption>
 						</figure>
 						<div class="featured-box-col2 wow fadeInRight delay-01s">
-							 It has been shown that faces are a lot <b>harder to recognize</b> when the are presented <b>upside down</b> (Farah et al., 1998). If face recognition were purely feature-based, that shouldn’t be the case since features remained intact and it’s just their presentation that changed. Additionally, in a study by Young et al. participants <b>performed</b> poorly at trying to recognize a celebrity <b>based on just the top half of the face</b> when it was combined with the bottom half of a different face (1987). Moreover, participants performed better at recognizing the top half when the two halves were misaligned, suggesting that we can't just tune out some of the features of a face and focus on others.	</div>
+							<br> If face recognition were purely feature-based, that shouldn’t be the case since features remained intact and it’s just their presentation that changed. Additionally, in a study by Young et al. participants <b>performed</b> poorly at trying to recognize a celebrity <b>based on just the top half of the face</b> when it was combined with the bottom half of a different face (1987). Moreover, participants performed better at recognizing the top half when the two halves were misaligned, suggesting that we can't just tune out some of the features of a face and focus on others.	</div>
+							<br><figure style="text-align: center;">
+							<img src="halves.png" width="50%" height="50%">
+							<figcaption>It's harder for people to recognize the top half of the face if the two halves are aligned.</figcaption>
+						</figure>
 						<div class="featured-box-col2 wow fadeInRight delay-01s">
 							 			 <br>However, it is also known that some facial features are more important depending on if the face is <b>familiar or unfamiliar</b>: <br> in the former case, internal features, such as shape of nose or eye color, have been shown to be more important, while external features such as face outline or hairstyle have been shown to be more important for unfamiliar faces (Ellis et al., 1979). </div>
-							 <br><br><br><br>
-							 <p align="right">Do you recognize this person<br> when her face is presented upside down?<br> Click on the image to rotate it!</p>
- </p>
+							 
 		
 							
 		</div>
@@ -159,7 +172,7 @@ function Rotate() {
 							<img src="facespace.jpg" alt="image" align="left">
 						</figure>
 <p>Not all people are equally good at recognizing faces - with people who don’t have the ability to identify people by looking at their face at all (this condition is called <i>prosopagnosia</i>, and famous people such as Oliver Sacks and Jane Goodall had it) on one end and so-called <i><b>super-recognizers</b></i> (Remember supertasters? Same deal but with face recognition!), who are able to recognize faces after only having briefly seen them once. Duchaine et al.’s study provides evidence that face recognition ability is genetic: face recognition ability in identical twins was strongly correlated (0.70) whereas the correlation in fraternal twins was significantly lower (0.30).</p><br>
-<div class="featured-box-col2 wow fadeInRight delay-01s"><p>Just like some people are better at recognizing faces than others, some faces lend themselves better to being recognize than others by being more distinctive. Valentino (1998) introduced the idea of <b>‘face-space’</b>: faces are arranged in this space by the ease with which they are recognized. In the very center of the space is a person whose features are average on all parameters and the more distinctive someone is based on their features, the further away they are from the center of the space.</p></div>
+<div class="featured-box-col2 wow fadeInRight delay-01s"><p>Just like some people are better at recognizing faces than others, some faces lend themselves better to being recognize than others by being more distinctive. Valentine (1991) introduced the idea of <b>‘face-space’</b>: faces are arranged in this space by the ease with which they are recognized. In the very center of the space is a person whose features are average on all parameters and the more distinctive someone is based on their features, the further away they are from the center of the space.</p></div>
 
 	</section>
 
@@ -174,7 +187,7 @@ function Rotate() {
 <div class="featured-box-col2 wow fadeInRight delay-01s"><p>Much about the neural processes involved in face recognition can be learned by conducting studies with subjects whose visual processing is impaired in some way because of brain damage. It was determined this way that face recognition partially depends on the same mechanisms as other types of visual recognition such as <b>object and scene recognition</b>. </p></div>
 <ul><br>
 	<li><div class="featured-box-col2 wow fadeInRight delay-01s">Rezlescu et al. (2012) worked with a subject who, because of damage to the right occipitotemporal cortex, lost his ability to recognize faces while exhibiting normal recognition for a variety of object classes and discrimination between similar objects, suggesting that certain processes are specific to face recognition.</div></li><br>
-	<li><div class="featured-box-col2 wow fadeInRight delay-01s">Conversely, Moscovitch et al. attempted to tease apart face recognition from object recognition and reading by working with CK, a patient with object agnosia and dyslexia. He performed as well as controls on face recognition as long as the face was upright and the eyes, nose, and mouth weren’t distorted, whether or not the face disguised or degraded and when represented as a photo, a caricature, a cartoon, or a face composed of objects. But CK performed a lot worse than controls when the face was distorted in any way, suggesting that those abilities share the same mechanism with reading and object recognition.</div></li>
+	<li><div class="featured-box-col2 wow fadeInRight delay-01s">Conversely, Moscovitch et al.(1997) attempted to tease apart face recognition from object recognition and reading by working with CK, a patient with object agnosia and dyslexia. He performed as well as controls on face recognition as long as the face was upright and the eyes, nose, and mouth weren’t distorted, whether or not the face disguised or degraded and when represented as a photo, a caricature, a cartoon, or a face composed of objects. But CK performed a lot worse than controls when the face was distorted in any way, suggesting that those abilities share the same mechanism with reading and object recognition.</div></li>
 </ul>
 
 	</section>
