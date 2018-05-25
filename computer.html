@@ -253,11 +253,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-sm-12 featured-work">
-					<h2 style="text-align: center;">Feature Extraction</h2>
-<!-- 					<figure>
-						<img src="img/face-det.png" alt="">
-					</figure>
-				-->					
+					<h2 style="text-align: center;">Feature Extraction</h2>			
 					<P class="padding-t-small">This feature extraction process can be defined as the procedure of extracting relevant information from a face image. This information must be valuable to the later step of identifying the subject with an acceptable error rate. The feature extraction process must be efficient in terms of computing time and memory usage. The output should also be optimized for the classification step. </P>
 				</div>
 			</div>
@@ -305,35 +301,85 @@
 					<p class="padding-b"> </p>
 					<div class="featured-box">
 						<div class="featured-box-col2 wow fadeInRight delay-01s">
-							<div class="col-sm-8">
-								<h3>Calculate Gradiant (the arrow)</h3>
-								<p> Taking the gray-scale picture above, we can draw an arrow at the marked pixel showing in which direction the image is getting darker. </p>
-								<P>If you repeat that process for every single pixel in the image, you end up with every pixel being replaced by an arrow. These arrows are called <b>gradients</b> and they show the flow from light to dark across the entire image:</P> 
+							<div class="col-sm-4">
+								<h3>Space of Faces</h3>
+								<p> If we take small images of faces as the <b>feature vector</b>, without detecting local features, then, for example, a 100x100 image is considered a 10000 dimensional feature vector. Each of these vectors are a location in a 10000 dimensional vector space. <b>Practically any vector in this space is a 100x100 image</b>.</p>
+								<P>As these are vectors just like any other vector, we can compute difference vectors, average vectors, sum of vectors etc. The difference of two face-vectors is obviously not a face, it is just a difference image.</P> 
 								<p class="padding-b"></p>
 							</div>
-							<div class="col-sm-4">
-								<img src="img/det-arrow.gif" alt="">
+							<div class="col-sm-4" style="text-align: center;">
+								<p class="padding-b-small"></p>
+								<img src="img/face-space.png" alt="">
 							</div>
-						</div>
-						<div class="featured-box-col2 wow fadeInRight delay-01s" style="text-align: center;">
-							<img src="img/gradient-full.gif" alt="">
-							<p class="padding-b">By only considering the direction that brightness changes, we reduces the influence of different illumination. </p>
-						</div>
-						<div class="featured-box-col2 wow fadeInRight delay-01s">
-							<p class="padding-b-small">Saving the gradient for every single pixel gives us way too much detail. We end up missing the forest for the trees. It would be better if we could just see the basic flow of lightness/darkness at a higher level so we could see the basic pattern of the image</p>
-						</div>
-						<div class="featured-box-col2 wow fadeInRight delay-01s" style="text-align: center;">
-							<img src="img/gradient-simple.gif" alt="">
-							<p class="padding-b">The original image is turned into a HOG representation that captures the major features of the image regardless of image brightnesss.</p>
+							<div class="col-sm-4" style="text-align: center;">
+								<img src="img/face-vector-addition.png" alt="">								
+							</div>
 						</div>
 					</div>
 					<div class="featured-box">
 						<div class="featured-box-col2 wow fadeInRight delay-01s">
-							<h3>HOG Matching</h3>
-							<p class="padding-b">To find faces in this HOG image, all we have to do is find the part of our image that looks the most similar to a known HOG pattern that was extracted from a bunch of other training faces:</p>
+							<div class="col-sm-12">
+								<h3>Compact Representation</h3>
+								<p class="padding-b">If we can find <b>a smaller set of basis vectors</b> that can be used to reconstruct the vectors in the dataset, we can represent them in a more compact way. This process of finding a smaller set of basis vectors to represent the data is called <b>dimensionality reduction</b>. For the space of faces this means: we need to find some set of vectors (corresponding to images) that can be used to mix any face image. If we can manage to find such a set, we will have a much more compact representation of faces.</p>
+							</div>
+						</div>
+					</div>
+					<div class="featured-box">
+						<div class="featured-box-col2 wow fadeInRight delay-01s">
+							<div class="col-sm-12">
+								<h3>Principal Component Analysis (PCA)</h3>
+								<p>The Principal Component Analysis is the tool to find this subspace, find a new set of basis vectors that can be used to mix any data vector.</p>
+								<ul>
+									<li>The first step is to find the average vector using all the points. For the space of faces this would be the average face.</li>
+									<li>Then iterating through all the points we can build a covariance matrix A that represents the distribution of the points around the average. The A matrix maps the unit hypersphere to a “hyper-ellipse” corresponding to the distribution of data points. In the direction where the data points have significant variation the ellipse will be large, on other directions where there is none or little variation, the ellipse will be small, or flat.</li>
+									<li>We can then use either the <b>eigendecomposition or the SVD</b> on matrix A –which is a symmetric matrix –to find these directions as well as the scaling factors in those direction.</li>
+									<li>By analyzing all the eigenvectors we get and the corresponding eigenvalues, we can come up with a new set of basis vectors by simply keeping the eigenvectors with large eigenvalues and dropping vectors of low eigenvalues.</li>
+								</ul>
+							</div>
 						</div>
 						<div class="featured-box-col2 wow fadeInRight delay-01s" style="text-align: center;">
-							<img src="img/gradient-match.png" alt="">
+							<img src="img/pca.png" alt="">
+						</div>
+					</div>
+					<div class="featured-box">
+						<div class="featured-box-col2 wow fadeInRight delay-01s">
+							<div class="col-sm-7">
+								<h3>Eigenfaces</h3>
+								<p class="padding-t-small">Eigenfacesare the significant eigenvectors of the face dataset. Using the eigenfaces, which are really images, any face image can be mixed using a simple linear combination. This means we can represent any face with weights of the eigenfaces.</p>
+								<p class="padding-t-small">While some eigenfacesseem to correspond to real features such as beard or glasses, in general eigenfacesare not faces. They are just difference images used to recreate any face in the dataset.</p>
+							</div>
+							<div class="col-sm-5">
+								<div class="featured-box-col2 wow fadeInRight delay-01s" style="text-align: center;">
+									<img src="img/face-avg-eigen.png" alt="">
+									<p class="padding-t-small">First image is the average face, the others are the eigenfaces.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="featured-box">
+						<div class="featured-box-col2 wow fadeInRight delay-01s">
+							<div class="col-sm-7">
+								<h3>Feature Selection</h3>
+								<p class="padding-t-small">If the eigenfacesare chosen properly, eg: we include all eigenfaces with larger eigenvalues, any face in the dataset can be reconstructed by a linear combination of the eigenfaces. To come up with these weights for a real face image, we simply need to multiply this 10000 dimensional input vector by a rotation matrix and drop all components with indices greater than K (the number of features we want to keep).</p>
+							</div>
+							<div class="col-sm-5">
+								<div class="featured-box-col2 wow fadeInRight delay-01s" style="text-align: center;">
+									<img src="img/face-lc.png" alt="">
+									<p>x is an N dimensional feature vector. v1, v2,..., vk are eigenfaces.</p>
+									<p>x = x_avg + a1v1 + a1v2 + ... + akvk</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="featured-box">
+						<div class="featured-box-col2 wow fadeInRight delay-01s">
+							<div class="col-sm-12">
+								<h3>Face detection with eigenfaces</h3>
+								<p>The eigenfacesneed to be computed only once, and then all faces in the database can be represented by a set of weights. This is a much more compact representation. </p>
+								<p>Then, to <b>verify</b> if there is a face on a new image we simply need to compute the <b>reconstruction with eigenfaces</b> and check if the reconstruction matches the original image. If it does, we are likely dealing with a face image.</p>
+								<p>To <b>identify</b> the face we need to find the closest weight-vector in the database and see if they are closed then some distance threshold.</p>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -342,6 +388,100 @@
 	</section>
 	<!--main-section alabaster-end-->
 
+	<section class="main-section alabaster" id="recognition">
+		<!--main-section alabaster-start-->
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-sm-12 featured-work">
+					<h2 style="text-align: center;">Face Classification and Recognition</h2>
+					<P class="padding-t-small"> Appearance-based face recognition algorithms use a wide variety of classification methods. Sometimes two or more classifiers are combined to achieve better results. On the other hand, most model-based algorithms match the samples with the model or template. </P>
+					<p>Then, a learning method is can be used to improve the algorithm - supervised, unsupervised or semi-supervised. Unsupervised learning is the most difficult approach, as there are no tagged examples. However, many face recognition applications include a tagged set of subjects. Consequently, most face recognition systems implement supervised learning methods. There are also cases where the labeled data set is small. Sometimes, the acquisition of new tagged samples can be infeasible. Therefore, semi-supervised learning is required.</p>
+					<p>One way or another, classifiers have a big impact in face recognition. Classification methods are also generally used in many areas like data mining, finance, signal decoding, voice recognition, natural language processing or medicine. 2 concepts that are key in building a classifier - similarity and probability. </p>
+					<p class="padding-b"></p>
+				</div>	
+				<div class="col-lg-12 col-sm-12 featured-work">
+					<div class="featured-box">
+						<div class="featured-box-col2 wow fadeInRight delay-01s">
+							<div class="col-sm-12">
+								<h3>Classifiers</h3>
+								<ul>
+									<li>Similarity: This approach is intuitive and simple. Patterns that are similar should belong to the same class. The idea is to establish a metric that defines similarity and a representation of the same-class samples. For example, the metric can be the euclidean distance. The representation of a class can be the mean vector of all the patterns belonging to this class.</li>
+									<li>Probability: Some classifiers are build based on a probabilistic approach. Bayes decision rule is often used. The rule can be modified to take into account different factors that could lead to mis-classification. 
+										<ul>
+											<li>Bayesian: Assign pattern to the class with the highest estimated posterior probability. Eg: a Maximum A Posteriori (MAP) decision rule: 
+												<img src="img/MAP.png" alt=""> where wi are the face classes and Z an image in a reduced PCA space.</li>
+											<li>Logistic Classifier: Predicts probability using logistic curve method.</li>
+											<li>Parzen Classifier: Bayesian classifier with Parzen density estimates.</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-12 col-sm-12 featured-work">
+					<p class="padding-b"></p>
+					<p class="padding-b"></p>
+					<h2 style="text-align: center;">Example: Neural Network</h2>
+					<figure style="text-align: center;">
+						<img src="img/nn.png" alt="">
+					</figure>
+					<P class="padding-t-small">Combining the idea of face detection and feature extraction ideas above, we see a wide variety of comprehensive face recognition algorithms applied in computer vision. We can summarize them into three different broad categories: <b>template matching, statistical approach and neural network</b>. The examples above corresponds to ideas within template matching and statistical category. Here, we want to show an example of how <b>neural network face recognition algorithm</b> works. </P>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 col-sm-12 featured-work">
+					<p class="padding-b"> </p>
+					<div class="featured-box">
+						<div class="featured-box-col2 wow fadeInRight delay-01s">
+							<div class="col-sm-6">
+								<h3>Which measurements should we collect from each face to build our known face database? Ear size? Nose length? Eye color? </h3>
+								<p> The measurements that seem obvious to us humans (like eye color) don’t really make sense to a computer looking at individual pixels in an image. Researchers have discovered that the most accurate approach is to let the computer figure out the measurements to collect itself. <b>Deep learning</b> does a better job than humans at <b>figuring out which parts of a face are important to measure</b>.
+								<p class="padding-b">The solution is to train a Deep Convolutional Neural Network to generate a number of different measurements for each face.</p>
+								<h3>Training</h3>
+								<p>The training process works by looking at 3 face images at a time:
+									<ul>
+										<li>Load a training face image of a known person</li>
+										<li>Load another picture of the same known person</li>
+										<li>Load a picture of a totally different person</li>
+									</ul>
+								</p>
+								<p>Then the algorithm looks at the measurements it is currently generating for each of those three images. It then tweaks the neural network slightly so that it makes sure the measurements it generates for #1 and #2 are slightly closer while making sure the measurements for #2 and #3 are slightly further apart.
+								</p>
+								<p class="padding-b"></p>
+							</div>
+							<div class="col-sm-6" style="text-align: center;">
+								<img src="img/nn-triplet.png" alt="">
+							</div>
+						</div>
+					</div>
+					<div class="featured-box">
+						<div class="featured-box-col2 wow fadeInRight delay-01s">
+							<div class="col-sm-6">
+								<img src="img/face-encoding.png" alt="">
+							</div>
+							<div class="col-sm-6">
+								<p class="padding-t-small">Machine learning people call these measurements of each face an <b>embedding</b>. The idea of reducing complicated raw data like a picture into a list of computer-generated numbers comes up a lot in machine learning (especially in language translation).</p>
+								<p class="padding-t-small">This process of training a convolutional neural network to output face embeddings requires <b>a lot of data and computer power</b>. With days of continuous training to get good accuracy, we will have a trained network that can generate measurements for any face, even ones it has never seen before! The network should generate nearly the same numbers when looking at two different pictures of the same person.</p>
+							</div>
+						</div>
+					</div>
+					<div class="featured-box">
+						<div class="featured-box-col2 wow fadeInRight delay-01s">
+							<div class="col-sm-12">
+								<h3>Recognition</h3>
+								<p>This last step is actually the easiest step in the whole process. All we have to do is find the person in our database of known people who has the closest measurements to our test image. And you can do that by using any basic machine learning classifier (eg: nearest neighbor, or the classifiers mentioned above, etc.). </p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--main-section alabaster-end-->
 	<footer class="footer">
 		<div class="container">
 			<span class="copyright">&copy; Knight Theme. All Rights Reserved</span>
