@@ -153,7 +153,7 @@
 	</section>
 	<!--main-section alabaster-end-->
 
-		<section class="main-section alabaster" id="detection">
+	<section class="main-section alabaster" id="detection">
 		<!--main-section alabaster-start-->
 		<div class="container">
 			<div class="row">
@@ -203,7 +203,7 @@
 					<p class="padding-b"></p>
 					<p class="padding-b"></p>
 					<h2 style="text-align: center;">Example: Histogram of Oriented Gradients Method (2005)</h2>
-					<P class="padding-t-small">TLDR: Taking a gray-scale image, we represent the entire image by using arrows, at each pixel, to point towards the direction that the image is getting darker. And then we can see if the pattern of arrows resembles a face or not. </P>
+					<P class="padding-t-small">TLDR: This is a template matching algorithm. Taking a gray-scale image, we represent the entire image by using arrows, at each pixel, to point towards the direction that the image is getting darker. And then we can see if the pattern of arrows resembles a face or not. </P>
 				</div>
 			</div>
 			<div class="row">
@@ -214,7 +214,101 @@
 							<div class="col-sm-8">
 								<h3>Calculate Gradiant (the arrow)</h3>
 								<p> Taking the gray-scale picture above, we can draw an arrow at the marked pixel showing in which direction the image is getting darker. </p>
-								<P>If you repeat that process for every single pixel in the image, you end up with every pixel being replaced by an arrow. These arrows are called gradients and they show the flow from light to dark across the entire image:</P> 
+								<P>If you repeat that process for every single pixel in the image, you end up with every pixel being replaced by an arrow. These arrows are called <b>gradients</b> and they show the flow from light to dark across the entire image:</P> 
+								<p class="padding-b"></p>
+							</div>
+							<div class="col-sm-4">
+								<img src="img/det-arrow.gif" alt="">
+							</div>
+						</div>
+						<div class="featured-box-col2 wow fadeInRight delay-01s" style="text-align: center;">
+							<img src="img/gradient-full.gif" alt="">
+							<p class="padding-b">By only considering the direction that brightness changes, we reduces the influence of different illumination. </p>
+						</div>
+						<div class="featured-box-col2 wow fadeInRight delay-01s">
+							<p class="padding-b-small">Saving the gradient for every single pixel gives us way too much detail. We end up missing the forest for the trees. It would be better if we could just see the basic flow of lightness/darkness at a higher level so we could see the basic pattern of the image</p>
+						</div>
+						<div class="featured-box-col2 wow fadeInRight delay-01s" style="text-align: center;">
+							<img src="img/gradient-simple.gif" alt="">
+							<p class="padding-b">The original image is turned into a HOG representation that captures the major features of the image regardless of image brightnesss.</p>
+						</div>
+					</div>
+					<div class="featured-box">
+						<div class="featured-box-col2 wow fadeInRight delay-01s">
+							<h3>HOG Matching</h3>
+							<p class="padding-b">To find faces in this HOG image, all we have to do is find the part of our image that looks the most similar to a known HOG pattern that was extracted from a bunch of other training faces:</p>
+						</div>
+						<div class="featured-box-col2 wow fadeInRight delay-01s" style="text-align: center;">
+							<img src="img/gradient-match.png" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--main-section alabaster-end-->
+
+	<section class="main-section alabaster" id="extraction">
+		<!--main-section alabaster-start-->
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-sm-12 featured-work">
+					<h2 style="text-align: center;">Feature Extraction</h2>
+<!-- 					<figure>
+						<img src="img/face-det.png" alt="">
+					</figure>
+				-->					
+					<P class="padding-t-small">This feature extraction process can be defined as the procedure of extracting relevant information from a face image. This information must be valuable to the later step of identifying the subject with an acceptable error rate. The feature extraction process must be efficient in terms of computing time and memory usage. The output should also be optimized for the classification step. </P>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 col-sm-12 featured-work">
+					<p class="padding-b-small"> </p>
+					<div class="featured-box">
+						<div class="featured-box-col2 wow fadeInRight delay-01s">
+							<h3>Dimension Reduction</h3>
+							<p>The performance of a classifier depends on the amount of sample images, number of features and classifier complexity.</p>
+							<p> Rationale for reducing dimensionality:
+								<ul>
+									<li>
+										"Curse of dimensionality" or "Peaking phenomenon": added features may degrade the performance of a classification algorithm.
+									</li>
+									<li>
+										Speed & Memory. The classifier will be faster and will use less memory if feature number is small.
+									</li>
+									<li>
+										a large set of features can result in a false positive when these features are redundant.
+									</li>
+								</ul>
+								<p>Ultimately, the number of features must be carefully chosen. Too less or redundant features can lead to a loss of accuracy of the recognition system.</p>
+						</div>
+					</div>
+					<div class="featured-box">
+						<div class="featured-box-col2 wow fadeInRight delay-01s">
+							<h3>Feature selection</h3>
+							<p>Features are extracted from the face images, then a optimum subset of these features is selected. It aims to select a subset of the extracted features that cause the smallest classification error. Dimension reduction method can be embedded in the selection method. </p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-sm-12 featured-work">
+					<p class="padding-b"></p>
+					<p class="padding-b"></p>
+					<h2 style="text-align: center;">Example: Eigenfaces</h2>
+					<P class="padding-t-small">TLDR: This feature extraction algorithm uses the numerical method of <b>principle component analysis</b> (PCA) to select a representative set of features that, when combined linearly, best describes faces in a low dimension. </P>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 col-sm-12 featured-work">
+					<p class="padding-b"> </p>
+					<div class="featured-box">
+						<div class="featured-box-col2 wow fadeInRight delay-01s">
+							<div class="col-sm-8">
+								<h3>Calculate Gradiant (the arrow)</h3>
+								<p> Taking the gray-scale picture above, we can draw an arrow at the marked pixel showing in which direction the image is getting darker. </p>
+								<P>If you repeat that process for every single pixel in the image, you end up with every pixel being replaced by an arrow. These arrows are called <b>gradients</b> and they show the flow from light to dark across the entire image:</P> 
 								<p class="padding-b"></p>
 							</div>
 							<div class="col-sm-4">
